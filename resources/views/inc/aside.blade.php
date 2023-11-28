@@ -4,34 +4,34 @@
             Follow Us
         </div>
         <div class="grid grid-cols-2 gap-3">
-            <div class="flex bg-blue-500 transition-all hover:bg-blue-400 h-14">
+            <a href="#" class="flex bg-blue-500 transition-all hover:bg-blue-400 h-14">
                 <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-facebook-f"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.3M</div>
                     <div class="text-neutral-300 text-xs leading-4">Likes</div>
                 </div>
-            </div>
-            <div class="flex bg-neutral-900 transition-all hover:bg-neutral-800 h-14">
+            </a>
+            <a href="#" class="flex bg-neutral-900 transition-all hover:bg-neutral-800 h-14">
                 <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-x-twitter"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">943.5K</div>
                     <div class="text-neutral-300 text-xs leading-4">Followers</div>
                 </div>
-            </div>
-            <div class="flex bg-red-600 transition-all hover:bg-red-500 h-14">
+            </a>
+            <a href="#" class="flex bg-red-600 transition-all hover:bg-red-500 h-14">
                 <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-youtube"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.1M</div>
                     <div class="text-neutral-300 text-xs leading-4">Subscribers</div>
                 </div>
-            </div>
-            <div class="flex bg-fuchsia-600 transition-all hover:bg-fuchsia-500 h-14">
+            </a>
+            <a href="#" class="flex bg-fuchsia-600 transition-all hover:bg-fuchsia-500 h-14">
                 <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-instagram"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.5M</div>
                     <div class="text-neutral-300 text-xs leading-4">Followers</div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
     <section id="weather">
@@ -76,5 +76,36 @@
             <button class="bg-neutral-800 text-white py-3 px-1 w-full">Subscribe</button>
         </div>
     </section>
-    <section id="categories"></section>
+    <section id="categories">
+        <div class="overflow-hidden">
+            <div class="py-3 mb-3 text-lg border-b-2">
+                Categories
+            </div>
+            <div class="rounded overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=400&h=100&fit=crop')] mb-3">
+                <a href="#" class="flex items-center p-3 bg-black bg-opacity-50 text-xl transition-all hover:bg-opacity-30 text-white font-bold">
+                    <img src="/images/categories/sports.png" alt="Sports" class="w-14 h-14 block mr-4"><span class="block">Sports</span>
+                </a>
+            </div>
+            <div class="rounded overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&h=100&fit=crop')] mb-3">
+                <a href="#" class="flex items-center p-3 bg-black bg-opacity-50 text-xl transition-all hover:bg-opacity-30 text-white font-bold">
+                    <img src="/images/categories/technology.png" alt="Sports" class="w-14 h-14 block mr-4"><span class="block">Technology</span>
+                </a>
+            </div>
+            <div class="rounded overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=400&h=100&fit=crop')] mb-3">
+                <a href="#" class="flex items-center p-3 bg-black bg-opacity-50 text-xl transition-all hover:bg-opacity-30 text-white font-bold">
+                    <img src="/images/categories/travel.png" alt="Sports" class="w-14 h-14 block mr-4"><span class="block">Travel</span>
+                </a>
+            </div>
+            <div class="rounded overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?q=80&w=400&h=100&fit=crop')] mb-3">
+                <a href="#" class="flex items-center p-3 bg-black bg-opacity-50 text-xl transition-all hover:bg-opacity-30 text-white font-bold">
+                    <img src="/images/categories/lifestyle.png" alt="Sports" class="w-14 h-14 block mr-4"><span class="block">Life Style</span>
+                </a>
+            </div>
+            <div class="rounded overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400&h=100&fit=crop')] mb-3">
+                <a href="#" class="flex items-center p-3 bg-black bg-opacity-50 text-xl transition-all hover:bg-opacity-30 text-white font-bold">
+                    <img src="/images/categories/food.png" alt="Sports" class="w-14 h-14 block mr-4"><span class="block">Food</span>
+                </a>
+            </div>
+        </div>
+    </section>
 </aside>

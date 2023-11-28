@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::controller(PageController::class)->group(function () {
     Route::get("/","index")->name("hone");
+});
+Route::name("posts.")->prefix("news")->controller(PostController::class)->group(function () {  
+    Route::get("/","index")->name("index");
+    Route::get("/{slug}","show")->name("show");
 });

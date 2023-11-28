@@ -15,7 +15,7 @@
     <div class="grid grid-cols-2 gap-3 h-[480px] my-5">
         <div class="relative group bg-cover bg-[url('https://source.unsplash.com/random/500x900')]">
             <div class="absolute group-hover:opacity-80 transition-all inset-0 w-full h-full bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent"></div>
-            <a href="#" class="absolute inset-0 w-full h-full flex flex-col justify-end px-3">
+            <a href="{{ route('posts.show', ['slug'=>fake()->slug(6)]) }}" class="absolute inset-0 w-full h-full flex flex-col justify-end px-3">
                 <div class="block text-white pb-3">
                     <span href="#" class="py-0.5 px-2.5 leading-6 rounded bg-blue-500 hover:bg-blue-600 text-sm">News</span>
                     <h3 class="text-2xl font-medium py-1">From the River to the Sea h-140 120 / 5 60</h3>
@@ -33,7 +33,7 @@
         <div class="grid grid-rows-5 grid-flow-col gap-5">
             @for ($i = 0; $i < 5; $i++)
             <div class="felx items-center">
-                <a href="#" class="flex group">
+                <a href="{{ route('posts.show', ['slug'=>fake()->slug(6)]) }}" class="flex group">
                     <div class="w-1/3 h-20 group-hover:opacity-80 transition-all">
                         <img class="w-full h-full object-cover" src="https://source.unsplash.com/random/200x112?sig={{$i}}" alt="test">
                     </div>

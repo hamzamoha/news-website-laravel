@@ -18,14 +18,14 @@
                             <i class="fa-solid fa-comments"></i> 21 <i class="fa-solid fa-eye"></i> 21,684
                         </p>
                     </div>
-                    <a href="#" class="block hover:text-amber-400 transition-all text-xl font-medium py-1">Budget issues force the Tour to be cancelled</a>
+                    <a href="{{ route('posts.show', ['slug'=>fake()->slug(6)]) }}" class="block hover:text-amber-400 transition-all text-xl font-medium py-1">Budget issues force the Tour to be cancelled</a>
                     <p class="text-sm text-neutral-500 py-1 mb-3">Stay focused and remember we design the best WordPress News and Magazine Themes</p>
-                    <a href="#" class="py-2.5 text-sm px-5 inline-block font-medium rounded-full text-white bg-amber-500 transition-all hover:bg-amber-600">Read More <i class="fa-solid fa-angles-right fa-2xs"></i></a>
+                    <a href="{{ route('posts.show', ['slug'=>fake()->slug(6)]) }}" class="py-2.5 text-sm px-5 inline-block font-medium rounded-full text-white bg-amber-500 transition-all hover:bg-amber-600">Read More <i class="fa-solid fa-angles-right fa-2xs"></i></a>
                 </div>
             </div>
             @for ($j = 0; $j < 2; $j++)
             <div class="felx items-center my-3">
-                <a href="#" class="flex group">
+                <a href="{{ route('posts.show', ['slug'=>fake()->slug(6)]) }}" class="flex group">
                     <div class="w-1/3 h-20 group-hover:opacity-80 transition-all">
                         <img class="w-full h-full object-cover" src="https://source.unsplash.com/random/200x112?sig={{ rand(15,8888) }}" alt="test">
                     </div>

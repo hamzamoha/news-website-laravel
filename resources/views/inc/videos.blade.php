@@ -20,9 +20,9 @@
         </a>
     </div>
     <div class="py-8">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
             @for ($i = 0; $i < 3; $i++)
-            <div class="py-3">
+            <div class="py-3{{$i==2?' hidden md:block':''}}">
                 <a href="#" class="block hover:opacity-80 transition-all">
                     <img src="https://source.unsplash.com/random/400x225?Video&sig={{$i+1}}" class="h-40 w-full object-cover block mb-2" alt="">
                 </a>

@@ -15,8 +15,8 @@
 <body>
     @include('inc.header')
     @include('inc.slide')
-    <div class="flex max-w-screen-xl mx-auto gap-10">
-        <div class="w-2/3">
+    <div class="grid lg:grid-cols-3 max-w-screen-xl mx-auto gap-10 px-2">
+        <div class="lg:col-span-2">
             @include('inc.magazine_box')
             @include('inc.Magazine_2rows')
             @include('inc.magazine_box_single')
@@ -59,7 +59,7 @@
                 </div>
             </main>
         </div>
-        <div class="w-1/3">
+        <div class="">
             @include('inc.aside')
         </div>
     </div>

@@ -3,12 +3,12 @@
         <div class="text-lg text-rose-400 mr-auto font-semibold">Trending News</div>
         <div class="ml-auto">
             <ul class="flex">
-                <li class="group mx-1 active"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">All</a></li>
-                <li class="group mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Foods</a></li>
-                <li class="group mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Life Style</a></li>
-                <li class="group mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Sports</a></li>
-                <li class="group mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Travel</a></li>
-                <li class="group mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Technology</a></li>
+                <li class="group mx-0.5 lg:mx-1 active"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">All</a></li>
+                <li class="group mx-0.5 lg:mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Foods</a></li>
+                <li class="group mx-0.5 lg:mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Life Style</a></li>
+                <li class="group mx-0.5 lg:mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Sports</a></li>
+                <li class="group mx-0.5 lg:mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Travel</a></li>
+                <li class="group mx-0.5 lg:mx-1"><a class="group-[.active]:text-rose-400 hover:group-[.active]:text-white rounded-sm transition-all hover:bg-rose-400 hover:text-white text-xs px-1.5 py-1" href="#">Technology</a></li>
             </ul>
         </div>
     </div>
@@ -38,8 +38,8 @@
                         <img class="w-full h-full object-cover" src="https://source.unsplash.com/random/200x112?sig={{$i}}" alt="test">
                     </div>
                     <div class="w-2/3 pl-2">
-                        <p class="text-neutral-500 text-sm leading-6">Nov 15, 2023</p>
-                        <h3 class="text-lg font-medium leading-7 overflow-hidden max-h-14">From the River to the Sea to the Sea to the Sea</h3>
+                        <p class="text-neutral-500 text-xs md:text-sm leading-6">Nov 15, 2023</p>
+                        <h3 class="text-sm md:text-base lg:text-lg font-medium leading-7 overflow-hidden max-h-14">From the River to the Sea to the Sea to the Sea</h3>
                     </div>
                 </a>
             </div>

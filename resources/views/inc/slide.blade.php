@@ -1,5 +1,5 @@
 <section id="slide">
-    <div class="max-w-screen-xl mx-auto py-5">
+    <div class="max-w-screen-xl mx-auto py-5 px-2">
         <div class="grid md:grid-cols-2 h-[608px] md:h-[500px] gap-1">
             <div class="relative group h-[200px] md:h-[500px]">
                 <div class="w-full h-full bg-cover bg-[url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400')]">
@@ -12,7 +12,7 @@
                     <p class="py-1 text-sm text-neutral-100">Stay focused and remember we design the best WordPress News
                         and Magazine Themes. It's the ones closest to you that want to…</p>
                 </a>
-                <a href="#" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-blue-500 hover:bg-blue-600 text-white text-sm">News</a>
+                <a href="{{ route('index_category', ['category'=>fake()->word()]) }}" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-blue-500 hover:bg-blue-600 text-white text-sm">News</a>
             </div>
             <div class="h-[404px] md:h-auto">
                 <div class="grid grid-rows-2 grid-flow-col h-full gap-1">
@@ -27,7 +27,7 @@
                             <p class="py-1 text-sm text-neutral-100 md:h-0 overflow-hidden transition-all duration-500 md:group-hover:h-12">
                                 Stay focused and remember we design the best...</p>
                         </a>
-                        <a href="#" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-green-500 hover:bg-green-600 text-white text-sm">News</a>
+                        <a href="{{ route('index_category', ['category'=>fake()->word()]) }}" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-green-500 hover:bg-green-600 text-white text-sm">News</a>
                     </div>
                     <div class="grid grid-cols-2 h-[200px] md:h-auto gap-1">
                         <div class="relative group">
@@ -41,7 +41,7 @@
                                 <p class="py-1 text-sm text-neutral-100 h-0 overflow-hidden transition-all duration-500 group-hover:h-12">
                                     Stay focused and remember we design the best...</p>
                             </a>
-                            <a href="#" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-red-500 hover:bg-red-600 text-white text-sm">News</a>
+                            <a href="{{ route('index_category', ['category'=>fake()->word()]) }}" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-red-500 hover:bg-red-600 text-white text-sm">News</a>
                         </div>
                         <div class="relative group">
                             <div class="w-full h-full bg-cover bg-[url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1400')]">
@@ -54,7 +54,7 @@
                                 <p class="py-1 text-sm text-neutral-100 h-0 overflow-hidden transition-all duration-500 group-hover:h-12">
                                     Stay focused and remember we design the best...</p>
                             </a>
-                            <a href="#" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-yellow-500 hover:bg-yellow-600 text-white text-sm">News</a>
+                            <a href="{{ route('index_category', ['category'=>fake()->word()]) }}" class="absolute top-3 left-3 py-0.5 px-2.5 leading-6 rounded bg-yellow-500 hover:bg-yellow-600 text-white text-sm">News</a>
                         </div>
                     </div>
                 </div>

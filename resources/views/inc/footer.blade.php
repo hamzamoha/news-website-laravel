@@ -1,5 +1,5 @@
 <footer>
-    <div class="text-white bg-slate-800">
+    <div class="text-white bg-slate-800 px-2">
         <div class="max-w-screen-xl mx-auto py-5">
             <div class="grid py-5 gap-8 sm:grid-cols-2 md:grid-cols-4">
                 <div>
@@ -40,7 +40,7 @@
                     <div class="mb-3">
                         <span class="inline-block py-3 border-b-2 border-white">Follow Us</span>
                     </div>
-                    <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="grid lg:grid-cols-2 gap-3">
                         <a href="#" class="flex bg-blue-500 transition-all hover:bg-blue-400 h-10">
                             <div class="h-full w-10 leading-8 py-1 text-center font-black text-lg text-white"><i class="fa-brands fa-facebook-f"></i></div>
                             <div class="flex flex-col justify-center">
@@ -74,7 +74,7 @@
             </div>
             <div class="grid md:grid-cols-3 gap-10 py-8">
                 <div class="">
-                    <img src="/images/logo-transparent.png" alt="Logo" class="block max-w-full h-20">
+                    <img src="/images/logo-transparent.png" alt="Logo" class="block max-w-full h-20 object-contain mx-auto">
                 </div>
                 <div>
                     <p class="text-sm">Men News is a Clean Responsive Newspaper, Magazine, News and Blog theme. Built with Laravel and Tailwindcss that allow you to completely customize your website to your needs.</p>

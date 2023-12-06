@@ -1,5 +1,5 @@
 <section>
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 md:gap-8">
     @for ($i = 0; $i < 2; $i++)
         <div>
             <div class="py-3 text-lg text-amber-500 border-b-2 font-medium">

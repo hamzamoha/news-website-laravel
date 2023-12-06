@@ -3,30 +3,30 @@
         <div class="py-3 mb-3 text-lg border-b-2">
             Follow Us
         </div>
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid sm:grid-cols-2 gap-0.5 sm:gap-1 md:gap-2 lg:gap-3">
             <a href="#" class="flex bg-blue-500 transition-all hover:bg-blue-400 h-14">
-                <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-facebook-f"></i></div>
+                <div class="h-full w-14 leading-10 py-2 text-center text-xl text-white"><i class="fa-brands fa-facebook-f"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.3M</div>
                     <div class="text-neutral-300 text-xs leading-4">Likes</div>
                 </div>
             </a>
             <a href="#" class="flex bg-neutral-900 transition-all hover:bg-neutral-800 h-14">
-                <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-x-twitter"></i></div>
+                <div class="h-full w-14 leading-10 py-2 text-center text-xl text-white"><i class="fa-brands fa-x-twitter"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">943.5K</div>
                     <div class="text-neutral-300 text-xs leading-4">Followers</div>
                 </div>
             </a>
             <a href="#" class="flex bg-red-600 transition-all hover:bg-red-500 h-14">
-                <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-youtube"></i></div>
+                <div class="h-full w-14 leading-10 py-2 text-center text-xl text-white"><i class="fa-brands fa-youtube"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.1M</div>
                     <div class="text-neutral-300 text-xs leading-4">Subscribers</div>
                 </div>
             </a>
             <a href="#" class="flex bg-fuchsia-600 transition-all hover:bg-fuchsia-500 h-14">
-                <div class="h-full w-14 leading-10 py-2 text-center font-black text-xl text-white"><i class="fa-brands fa-instagram"></i></div>
+                <div class="h-full w-14 leading-10 py-2 text-center text-xl text-white"><i class="fa-brands fa-instagram"></i></div>
                 <div class="flex flex-col justify-center">
                     <div class="text-white font-bold text-sm leading-5">1.5M</div>
                     <div class="text-neutral-300 text-xs leading-4">Followers</div>
@@ -45,6 +45,20 @@
             </div>
         </div>
     </section>
+    <section id="ad_banner">
+        <div class="py-5">
+            <div class="relative">
+                <div class="py-3 mb-3 text-lg border-b-2">
+                    Ad Banner
+                </div>
+                <div class="pt-[80%] bg-neutral-800 relative">
+                    <div class="absolute inset-0 w-full h-full flex items-center justify-center text-center">
+                        <span class="text-white text-5xl font-medium">Ad Banner 5:4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="featured">
         <div class="py-3">
             <div class="flex">
@@ -55,11 +69,11 @@
                 @for ($i = 0; $i < 5; $i++) 
                 <div class="felx items-center my-2">
                     <a href="#" class="flex group">
-                        <div class="w-1/3 h-20 group-hover:opacity-80 transition-all">
+                        <div class="w-1/3 h-16 md:h-20 group-hover:opacity-80 transition-all">
                             <img class="w-full h-full object-cover" src="https://source.unsplash.com/random/200x112?Lifestyle&sig={{$i}}" alt="test">
                         </div>
                         <div class="w-2/3 pl-2">
-                            <h3 class="font-medium text-neutral-700 transition-all group-hover:text-blue-500 leading-6 overflow-hidden max-h-14">From the River to the Sea to the Sea to the Sea</h3>
+                            <h3 class="font-medium text-sm md:text-base text-neutral-700 transition-all group-hover:text-blue-500 leading-6 overflow-hidden max-h-14">From the River to the Sea to the Sea to the Sea</h3>
                             <p class="text-neutral-500 text-sm leading-5"><i class="fa-regular fa-clock"></i> Nov 15, 2023</p>
                         </div>
                     </a>

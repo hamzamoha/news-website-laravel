@@ -14,9 +14,9 @@
 </head>
 <body>
     @include('inc.header')
-    <div class="flex max-w-screen-xl mx-auto gap-10">
-        <div class="w-2/3">
-            <main>
+    <div class="grid lg:grid-cols-3 max-w-screen-xl mx-auto gap-10 px-2">
+        <div class="lg:col-span-2">
+            <main class="px-2">
                 <div class="py-6 text-sm text-neutral-700">
                     <a class="transition-all hover:text-amber-500" href="/"><i class="fa-solid fa-house-chimney"></i> Home</a>
                     <span>/</span>
@@ -131,7 +131,7 @@
             </section>
             @include('inc.comments')
         </div>
-        <div class="w-1/3">
+        <div class="">
             @include('inc.aside')
         </div>
     </div>

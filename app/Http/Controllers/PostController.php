@@ -12,6 +12,18 @@ class PostController extends Controller
      */
     public function index()
     {
+        if(request()->wantsJson()){
+            $per_page = intval(request()->input("per_page", 20));
+            return response()->json(Post::paginate($per_page,["id","title","categories","status","created_at"]));
+        }
+    }
+    public function index_category()
+    {
+        return view("news.index_category")->with("category", request("category"));
+    }
+    public function index_tag()
+    {
+        return view("news.index_tag")->with("tag", request("tag"));
         //
     }
 

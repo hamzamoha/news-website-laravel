@@ -1,5 +1,5 @@
 <section>
-    <div class="py-4">
+    <div class="py-4 px-2">
         <div class="py-2 text-2xl font-semibold text-slate-800">
             <i class="fa-regular fa-comment-dots fa-flip-horizontal"></i> Leave a Comment
         </div>

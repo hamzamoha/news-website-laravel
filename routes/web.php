@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,14 @@ Route::controller(PageController::class)->group(function () {
 });
 Route::name("posts.")->prefix("news")->controller(PostController::class)->group(function () {  
     Route::get("/","index")->name("index");
+    Route::post("/","store")->name("store");
+    Route::post("/{id}","update")->name("update");
+    Route::get("/api/{id}","show")->name("get");
+    Route::delete("/{id}","destroy")->name("delete");
     Route::get("/{slug}","show")->name("show");
+});
+Route::name("comments.")->prefix("comments")->controller(CommentController::class)->group(function () {  
+    Route::get("/","index")->name("index");
 });
 Route::get("/category/{category}",[PostController::class, "index_category"])->name("index_category");
 Route::get("/tag/{tag}",[PostController::class, "index_tag"])->name("index_tag");

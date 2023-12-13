@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comment extends Model
 {
     use SoftDeletes;
+    protected $fillable = [
+        'name',
+        'email',
+        'website',
+        'content',
+        'post_id'
+    ];
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

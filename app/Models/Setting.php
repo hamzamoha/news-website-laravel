@@ -15,8 +15,10 @@ class Setting extends Model
         return Setting::where('key', $key)->first()->value;
     }
     public static function set(string $key, string $value) {
-        $setting = Setting::where('key', $key)->first();
-        $setting->value = $value;
-        $setting->save();
+        try {
+            $setting = Setting::firstOrCreate()->first();
+            $setting->value = $value;
+            $setting->save();
+        } catch(\Throwable $r){}
     }
 }

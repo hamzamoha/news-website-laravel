@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in news.data" :key="index">
+                <tr class="hover:bg-slate-100 cursor-pointer" @click="$router.push(`/news/edit/${item.id}`)" v-for="(item, index) in news.data" :key="index">
                     <td class="py-4 border px-2 text-center">{{ 1 + +index }}</td>
                     <td class="py-4 border px-2">{{ item.title }}</td>
                     <td class="py-3.5 border px-2">
@@ -24,7 +24,7 @@
                     <td class="py-4 border px-2 text-center">{{ Math.floor(Math.random()*266) }}</td>
                     <td class="py-4 border px-2 text-center">
                         <span v-if="item.status == 'publish'" class="py-2 px-1.5 text-xs bg-green-100 border border-green-200 text-green-500 rounded">Published</span>
-                        <span v-else="true" class="py-2 px-1.5 text-xs bg-red-100 border border-red-200 text-red-500 rounded">Deleted</span>
+                        <span v-else class="py-2 px-1.5 text-xs bg-orange-100 border border-orange-200 text-orange-500 rounded">Draft</span>
                     </td>
                     <td class="py-4 border px-2 text-center">{{ date(item.created_at) }}</td>
                 </tr>
@@ -90,7 +90,7 @@ export default {
             await fetch(`/news?per_page=${per_page}&page=${page}`, {
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "application/json",
+                    "Accept": "application/json"
                 }
             })
             .then(r=>r.json())

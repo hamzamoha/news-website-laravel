@@ -1,9 +1,10 @@
 <template>
-    <div class="px-8 py-4 text-slate-700 font-semibold">
+    <div class="px-8 py-4 text-slate-700 font-semibold" v-if="news">
         <div class="text-right pb-4">
-            <button @click="draft()" class="leading-6 py-2 px-4 rounded mx-1 bg-slate-500 hover:bg-slate-400 outline-none active:bg-slate-500 text-slate-100" type="button">
+            <button @click="deletePost()" class="leading-6 py-2 px-4 rounded mx-1 bg-red-600 hover:bg-red-500 outline-none active:bg-red-600 text-slate-100" type="button">Delete</button>
+            <button @click="draft()" :disabled="saving" class="leading-6 py-2 px-4 rounded mx-1 bg-slate-500 hover:bg-slate-400 outline-none active:bg-slate-500 text-slate-100" type="button">
                 <i v-if="saving" class="fa-solid fa-spinner fa-spin"></i>
-                <span v-else>Save as Draft</span>
+                <span v-else>Save</span>
             </button>
             <button @click="publish()" class="leading-6 py-2 px-4 rounded mx-1 bg-amber-600 hover:bg-amber-500 outline-none active:bg-amber-600 text-slate-100" type="button">Publish</button>
         </div>
@@ -39,19 +40,30 @@
                 <div class="relative mb-3">
                     <div class="py-3 text-2xl">Content</div>
                     <textarea class="hidden" @change="onChange('content')" v-model="news.content"></textarea>
-                    <div class="editor"></div>
+                    <div class="editor1"></div>
                 </div>
             </div>
             <div>
                 <div class="relative mb-3">
                     <h4 class="text-xl pb-2">Tags</h4>
-                    <vue3-tags-input v-if="temp_tags" :tags="temp_tags" @on-tags-changed="tagsChanged" placeholder="Tags" />
+                    <vue3-tags-input v-if="temp_tags" :tags="temp_tags" @on-tags-changed="tagsChanged" placeholder="input tags" />
                 </div>
                 <div class="relative mb-3">
                     <h4 class="text-xl pb-2">Category</h4>
+                    <vue3-tags-input :duplicate-select-item="false" v-if="temp_cats" :tags="temp_cats" @on-tags-changed="categoriesChanged" @on-select="categoriesSelected" placeholder="input tags" :select-items="categories" :select="true">
+                        <template #select-item="tag">
+                            {{ tag.text }}
+                        </template>
+                        <template #item="{ tag, index }">
+                            {{ tag.text.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) }}
+                        </template>
+                        <template #no-data>
+                            No Data
+                        </template>
+                    </vue3-tags-input>
                 </div>
                 <div class="relative mb-3 text-lg">
-                    <label for="video"><input @change="onChange('video')" v-model="news.video" type="checkbox" name="video" id="video"> Add to Videos?</label>
+                    <label for="video"><input @change="onChange('video')" :checked="news.video==1" type="checkbox" name="video" id="video"> Add to Videos?</label>
                 </div>
             </div>
         </div>
@@ -63,37 +75,35 @@
 }
 </style>
 <script>
+import { watch, ref } from "vue"
 import Vue3TagsInput from 'vue3-tags-input'
-const watchdog = new window.CKSource.EditorWatchdog();
-window.watchdog = watchdog;
+const watchdog = new window.CKSource.EditorWatchdog()
+window.watchdog = watchdog
 watchdog.setCreator((element, config) => {
     return CKSource.Editor
         .create(element, config)
         .then(editor => {
-            return editor;
-        });
+            return editor
+        })
 });
 watchdog.setDestructor(editor => {
-    return editor.destroy();
+    return editor.destroy()
 });
 watchdog.on('error', (error) => {});
+const newsRef = ref(null)
 export default {
-    name: "Create News",
+    name: "Edit News",
     components: {Vue3TagsInput},
     data() {
         return {
             csrf_token: document.querySelector("meta[name='csrf-token']").getAttribute("content"),
             send_image: false,
-            temp_tags: [],
+            news: null,
+            temp_tags: null,
             temp_cats: null,
+            temp_timeout: null,
+            preview_url: null,
             saving: false,
-            news: {
-                title: "",
-                content: "",
-                categories: [],
-                tags: "",
-                video: false
-            },
             categories: [
                 {
                     id: 1,
@@ -111,25 +121,49 @@ export default {
         }
     },
     mounted() {
-        watchdog
-            .create(document.querySelector('.editor'), {
-                extraPlugins: [ /* SimpleUploadAdapterPlugin */ ],
-            })
-            .then(() => {
-                watchdog.editor.model.document.on('change:data', () => {
-                    this.content = watchdog.editor.getData();
-                });
-            })
-            .catch((error)=>{});
+        this.fetchData()
+        watch(newsRef, async (newNews, oldNews) => {if(newNews)setTimeout(() => {
+            this.initContent()
+        }, 1000)})
     },
     methods: {
+        showFile() {
+            console.log(this.$refs.imageinput.file)
+        },
+        initContent(){
+            watchdog
+            .create(document.querySelector('.editor1'), {
+                extraPlugins: [ /* SimpleUploadAdapterPlugin */ ],
+                initialData: this.news.content
+            })
+            .then(() => {
+                watchdog.editor.model.document.on('change:data', async () => {
+                    this.news.content = watchdog.editor.getData()
+                    if(this.temp_timeout) await clearTimeout(this.temp_timeout);
+                    this.temp_timeout = setTimeout(() => {
+                        this.onChange('content')
+                    }, 2000)
+                });
+            })
+            .catch((error)=>{console.log(error);});
+        },
+        async fetchData(){
+            this.news = null;
+            await fetch(`/news/api/${this.$route.params.id}`, {
+                headers: {
+                    "Accept": "application/json"
+                }
+            })
+            .then(r=>r.json())
+            .then(r=>{newsRef.value=this.news=r;this.temp_tags=r.tags&&r.tags!=''?r.tags.split(","):[];this.temp_cats=r.categories&&r.categories!=""?r.categories.split(",").map(e=>({text: e})):[]});
+        },
         async save(data){
             this.saving = true
             const formData = new FormData()
             Object.keys(data).forEach(key => {
                 formData.append(key, data[key])
             })
-            return await fetch("/news/"+(this.news?.id?this.news.id:""), {
+            return await fetch(`/news/${this.news.id}`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
@@ -154,6 +188,11 @@ export default {
                 if(this.$refs.imageInput.files.length>0){
                     this.preview_url = window.URL.createObjectURL(this.$refs.imageInput.files[0])
                     await this.save({image: this.$refs.imageInput.files[0]})
+                    this.news.image = this.news.image + "?" + new Date().getTime()
+                    setTimeout(() => {
+                        this.$refs.imageInput.value = ""
+                        this.preview_url = null
+                    }, 500);
                 }
                 else {
                     await this.save({"image": "delete"})
@@ -162,19 +201,25 @@ export default {
             }
             else await this.save({[key]: this.news[key]})
         },
-        async imageDroped(event){
-            this.$refs.imageInput.files = event.dataTransfer.files
-            await this.onChange("image")
+        async deletePost(){
+            await this.save({"_method": "DELETE"})
+            this.$router.push("/news")
         },
         async draft(){
-            await this.save({status: "draft"})
+            await this.save({"status": "draft"})
             this.$router.push("/news")
         },
         async publish(){
-            await this.save({status: "publish"})
+            await this.save({"status": "publish"})
             this.$router.push("/news")
         },
         tagsChanged(t){this.temp_tags=t;this.news.tags=t.join(',');this.save({tags: t.join(',').toLocaleLowerCase()})},
+        async categoriesChanged(t){this.temp_cats=t;this.news.categories=t.map(e=>e.text).join(',').toLocaleLowerCase();this.save({categories: this.news.categories});return t;},
+        async categoriesSelected(t){await this.temp_cats.push(t);this.news.categories=this.temp_cats.map(e=>e.text).join(',');this.save({categories: this.news.categories})},
+        async imageDroped(event){
+            this.$refs.imageInput.files = event.dataTransfer.files
+            await this.onChange("image")
+        }
     }
 }
 </script>

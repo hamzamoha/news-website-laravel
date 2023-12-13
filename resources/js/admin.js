@@ -9,6 +9,7 @@ import News from "./admin-panel/components/News.vue"
 import Profile from "./admin-panel/components/Profile.vue"
 import Settings from "./admin-panel/components/Settings.vue"
 import CreateNews from "./admin-panel/components/CreateNews.vue"
+import EditNews from "./admin-panel/components/EditNews.vue"
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -16,32 +17,30 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            alias: '/*',
             component: Dashboard,
         },
         {
             path: '/news',
-            alias: '/news/*',
             component: News,
         },
         {
             path: '/news/create',
-            alias: '/news/create/*',
             component: CreateNews
         },
         {
+            path: '/news/edit/:id',
+            component: EditNews
+        },
+        {
             path: '/comments',
-            alias: '/comments/*',
             component: Comments,
         },
         {
             path: '/profile',
-            alias: '/profile/*',
             component: Profile,
         },
         {
             path: '/settings',
-            alias: '/settings/*',
             component: Settings,
         }
     ]

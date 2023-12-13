@@ -66,8 +66,9 @@
                         <span class="">Dashboard</span>
                     </div>
                 </div>
-                <div class="ml-auto h-14 py-2 pr-2">
-                    <button><img class="w-10 h-10 rounded-full object-cover" src="" alt=""></button>
+                <div class="ml-auto h-14 py-2 pr-2 flex gap-4">
+                    <a target="_blank" href="/" class="leading-8 my-1 px-2 rounded bg-slate-600 text-slate-100 font-semibold hover:bg-slate-500 block">View Website</a>
+                    <button class="block"><img class="block w-10 h-10 rounded-full object-cover" src="" alt=""></button>
                 </div>
             </nav>
         <router-view />

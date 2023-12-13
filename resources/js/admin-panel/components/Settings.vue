@@ -67,8 +67,8 @@ export default {
         return {
             settings: {
                 website_title: 'Men News',
-                description: "Men News is a Clean Responsive Newspaper, Magazine, News and Blog theme. Built with Laravel and Tailwindcss that allow you to completely customize your website to your needs.",
-                keywords: "text,home,css",
+                description: "",
+                keywords: "",
                 social_media: {
                     facebook: "",
                     x: "",
